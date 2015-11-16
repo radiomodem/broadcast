@@ -34,8 +34,12 @@ WORKDIR ~/icecast
 RUN git clone -b v$ICECAST_VERSION --depth 1 $ICECAST_SOURCE .
 RUN ./autogen.sh && make && make install
 
+RUN mkdir -p logs && chmod 777 logs
+
+COPY icecast.xml ./
+
 ################################################################################
 # Entrypoint
 ################################################################################
 
-ENTRYPOINT ["icecast"]
+ENTRYPOINT ["icecast", "-c", "./icecast.xml"]
