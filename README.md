@@ -1,4 +1,4 @@
-# Modem: Icecast
+# Modem: Broadcast
 
 > Dockerized Icecast deployment for broadcasting to Modem listeners
 
