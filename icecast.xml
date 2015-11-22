@@ -1,0 +1,66 @@
+<icecast>
+  <hostname>broadcast.radiomodem.dk</hostname>
+  <location>Copenhagen, Denmark</location>
+  <admin>modem@itu.dk</admin>
+  <fileserve>1</fileserve>
+
+  <authentication>
+    <source-password>SOURCE_PASSWORD</source-password>
+
+    <relay-user>relay</relay-user>
+    <relay-password>RELAY_PASSWORD</relay-password>
+
+    <admin-user>admin</admin-user>
+    <admin-password>ADMIN_PASSWORD</admin-password>
+  </authentication>
+
+  <listen-socket>
+    <port>80</port>
+  </listen-socket>
+
+  <mount type="normal">
+    <mount-name>/stream.mp3</mount-name>
+    <charset>UTF-8</charset>
+  </mount>
+
+  <mount type="normal">
+    <mount-name>/stream.ogg</mount-name>
+    <charset>UTF-8</charset>
+  </mount>
+
+  <http-headers>
+    <header name="Access-Control-Allow-Origin" value="*" />
+  </http-headers>
+
+  <limits>
+    <clients>100</clients>
+    <sources>2</sources>
+    <queue-size>102400</queue-size>
+    <header-timeout>15</header-timeout>
+    <source-timeout>10</source-timeout>
+    <burst-size>65536</burst-size>
+  </limits>
+
+  <paths>
+    <basedir>./</basedir>
+    <logdir>./logs</logdir>
+    <pidfile>./icecast.pid</pidfile>
+    <webroot>./web</webroot>
+    <adminroot>./admin</adminroot>
+    <alias source="/" destination="/status.xsl" />
+  </paths>
+
+  <logging>
+    <accesslog>-</accesslog>
+    <errorlog>-</errorlog>
+    <loglevel>4</loglevel>
+  </logging>
+
+  <security>
+    <chroot>0</chroot>
+    <changeowner>
+      <user>nobody</user>
+      <group>nogroup</group>
+    </changeowner>
+  </security>
+</icecast>

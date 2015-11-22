@@ -26,20 +26,25 @@ RUN apt-get update && apt-get install -y \
   libogg-dev \
   libvorbis-dev \
 
+  # OpenSSL
+  openssl \
+
   # Git
   git-core
 
-WORKDIR ~/icecast
+WORKDIR /
 
-RUN git clone -b v$ICECAST_VERSION --depth 1 $ICECAST_SOURCE .
+RUN git clone -b v$ICECAST_VERSION --depth 1 $ICECAST_SOURCE icecast
+
+WORKDIR /icecast
+
 RUN ./autogen.sh && make && make install
 
-RUN mkdir -p logs && chmod 777 logs
-
-COPY conf/icecast.xml ./
+COPY entrypoint.sh ./
+COPY icecast.xml ./
 
 ################################################################################
 # Entrypoint
 ################################################################################
 
-ENTRYPOINT ["icecast", "-c", "./icecast.xml"]
+ENTRYPOINT ["./entrypoint.sh"]

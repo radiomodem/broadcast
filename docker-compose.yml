@@ -1,4 +1,5 @@
 icecast:
+  env_file: .env
   build: .
   ports:
     - 80:80
