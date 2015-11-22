@@ -36,7 +36,7 @@ RUN ./autogen.sh && make && make install
 
 RUN mkdir -p logs && chmod 777 logs
 
-COPY icecast.xml ./
+COPY conf/icecast.xml ./
 
 ################################################################################
 # Entrypoint
