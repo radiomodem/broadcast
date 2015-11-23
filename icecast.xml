@@ -45,8 +45,9 @@
     <basedir>./</basedir>
     <logdir>./logs</logdir>
     <pidfile>./icecast.pid</pidfile>
-    <webroot>./web</webroot>
-    <adminroot>./admin</adminroot>
+    <webroot>./app/web</webroot>
+    <adminroot>./app/admin</adminroot>
+
     <alias source="/" destination="/status.xsl" />
   </paths>
 
