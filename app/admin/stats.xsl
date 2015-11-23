@@ -15,20 +15,56 @@
         <xsl:call-template name="navbar" />
 
         <main class="container" role="main">
-          <div class="section">
-            <h2>Administration</h2>
+          <h2>Administration</h2>
 
-            <div class="article">
-              <h3>Global server stats</h3>
-              <table class="table-block">
-                <thead>
+          <h3>Global server stats</h3>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Key</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <xsl:for-each select="/icestats/*[not(self::source) and not(self::authentication)]">
+                <tr>
+                  <td><xsl:value-of select="name()" /></td>
+                  <td><xsl:value-of select="text()" /></td>
+                </tr>
+              </xsl:for-each>
+            </tbody>
+          </table>
+
+          <xsl:for-each select="source">
+            <h3>Mountpoint <xsl:value-of select="@mount" /></h3>
+
+            <h4>Play stream</h4>
+            <a href="{@mount}.m3u"><i class="ion-play"></i> M3U</a>
+
+            <h4>Further information</h4>
+            <table>
+              <thead>
+                <tr>
+                  <th>Key</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <xsl:for-each select="*[not(self::metadata) and not(self::authentication) and not(self::authenticator) and not(self::listener)]">
                   <tr>
-                    <th>Key</th>
-                    <th>Value</th>
+                    <td><xsl:value-of select="name()" /></td>
+                    <td><xsl:value-of select="text()" /></td>
                   </tr>
-                </thead>
+                </xsl:for-each>
+              </tbody>
+            </table>
+
+            <xsl:if test="metadata/*">
+              <h4>Extra Metadata</h4>
+              <table>
                 <tbody>
-                  <xsl:for-each select="/icestats/*[not(self::source) and not(self::authentication)]">
+                  <xsl:for-each select="metadata/*">
                     <tr>
                       <td><xsl:value-of select="name()" /></td>
                       <td><xsl:value-of select="text()" /></td>
@@ -36,49 +72,8 @@
                   </xsl:for-each>
                 </tbody>
               </table>
-            </div>
-
-            <xsl:for-each select="source">
-              <div class="article">
-                <h3>Mountpoint <xsl:value-of select="@mount" /></h3>
-
-                <h4>Play stream</h4>
-                <a class="play" href="{@mount}.m3u">&#9658; <span>M3U</span></a>
-
-                <h4>Further information</h4>
-                <table class="table-block">
-                  <thead>
-                    <tr>
-                      <th>Key</th>
-                      <th>Value</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <xsl:for-each select="*[not(self::metadata) and not(self::authentication) and not(self::authenticator) and not(self::listener)]">
-                      <tr>
-                        <td><xsl:value-of select="name()" /></td>
-                        <td><xsl:value-of select="text()" /></td>
-                      </tr>
-                    </xsl:for-each>
-                  </tbody>
-                </table>
-
-                <xsl:if test="metadata/*">
-                  <h4>Extra Metadata</h4>
-                  <table class="table-block">
-                    <tbody>
-                      <xsl:for-each select="metadata/*">
-                        <tr>
-                          <td><xsl:value-of select="name()" /></td>
-                          <td><xsl:value-of select="text()" /></td>
-                        </tr>
-                      </xsl:for-each>
-                    </tbody>
-                  </table>
-                </xsl:if>
-              </div>
-            </xsl:for-each>
-          </div>
+            </xsl:if>
+          </xsl:for-each>
         </main>
 
         <xsl:call-template name="footer" />
