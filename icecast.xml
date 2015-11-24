@@ -54,7 +54,7 @@
   <logging>
     <accesslog>-</accesslog>
     <errorlog>-</errorlog>
-    <loglevel>4</loglevel>
+    <loglevel>2</loglevel>
   </logging>
 
   <security>

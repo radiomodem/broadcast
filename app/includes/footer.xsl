@@ -1,18 +1,18 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:output method="html" doctype-system="about:legacy-compat" encoding="utf-8" />
-  
+
   <xsl:template name="footer">
 
     <footer class="footer" role="contentinfo">
       <div class="container">
         <div class="row">
           <div class="column u-compact">
-            <p><b>Copyright ® 2015 Modem</b></p>
+            <p><b>Copyright © 2015 Modem</b></p>
           </div>
 
           <div class="column u-compact u-text-right">
             <ul class="u-inline-list">
-              <li>The broadcast is managed by <a href="http://icecast.org" class="u-click-target">Icecast</a></li>
+              <li>This broadcast is managed by <a href="http://icecast.org" class="u-click-target">Icecast</a></li>
             </ul>
           </div>
         </div>
