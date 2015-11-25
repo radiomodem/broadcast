@@ -26,7 +26,7 @@
                   <source src="{@mount}" type="{server_type}" />
                 </audio>
 
-                <table>
+                <table class="table">
                   <tbody>
                     <xsl:if test="server_name">
                       <tr>

@@ -19,7 +19,7 @@
 
           <h3>Global server stats</h3>
 
-          <table>
+          <table class="table">
             <thead>
               <tr>
                 <th>Key</th>
@@ -43,7 +43,7 @@
             <a href="{@mount}.m3u"><i class="ion-play"></i> M3U</a>
 
             <h4>Further information</h4>
-            <table>
+            <table class="table">
               <thead>
                 <tr>
                   <th>Key</th>
@@ -62,7 +62,7 @@
 
             <xsl:if test="metadata/*">
               <h4>Extra Metadata</h4>
-              <table>
+              <table class="table">
                 <tbody>
                   <xsl:for-each select="metadata/*">
                     <tr>
