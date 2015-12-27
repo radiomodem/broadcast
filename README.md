@@ -6,7 +6,7 @@
 
 ## Deployment
 
-The easiest way to deploy the setup to the production server at https://broadcast.radiomodem.dk is by first added the server to [Docker Machine]:
+The easiest way to deploy the setup to the production server at https://broadcast.radiomodem.dk is by first adding the server to [Docker Machine]:
 
 ```sh
 $ docker-machine create -d generic \
