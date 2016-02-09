@@ -7,7 +7,7 @@
       <div class="container">
         <div class="row">
           <div class="column u-compact">
-            <p><b>Copyright © 2015 Modem</b></p>
+            <p><b>Copyright © 2016 Modem</b></p>
           </div>
 
           <div class="column u-compact u-text-right">
