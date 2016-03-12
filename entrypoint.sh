@@ -18,4 +18,4 @@ sed -i "s/ADMIN_PASSWORD/$ICECAST_ADMIN_PASSWORD/g" ./icecast.xml
 
 cat ./icecast.xml
 
-icecast -c ./icecast.xml $@
+supervisord -n -c ./supervisord.conf

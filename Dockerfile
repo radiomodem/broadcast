@@ -29,6 +29,9 @@ RUN apt-get update && apt-get install -y \
   # OpenSSL
   openssl \
 
+  # Supervisor
+  supervisor \
+
   # Git
   git-core
 
@@ -42,6 +45,7 @@ RUN ./autogen.sh && make && make install
 
 COPY entrypoint.sh ./
 COPY icecast.xml ./
+COPY supervisord.conf ./
 COPY app ./app
 COPY deny-ip.txt ./
 
