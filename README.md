@@ -11,7 +11,7 @@ The easiest way to deploy the setup to the production server at https://broadcas
 ```sh
 $ docker-machine create -d generic \
     --generic-ip-address direct.broadcast.radiomodem.dk \
-    --generic-ssh-user core \
+    --generic-ssh-user root \
     --generic-ssh-key /path/to/ssh/key \
     broadcast.radiomodem.dk
 ```
