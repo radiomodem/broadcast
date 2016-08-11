@@ -27,7 +27,7 @@ That's it!
 
 ---
 
-Copyright &copy; 2015 Modem. Licensed under the terms of the [MIT license](LICENSE.md).
+Copyright &copy; 2015-2016 Modem. Licensed under the terms of the [MIT license](LICENSE.md).
 
 [Docker Machine]: https://docs.docker.com/machine/
 [Docker Compose]: https://docs.docker.com/compose/
