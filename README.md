@@ -12,14 +12,14 @@ The easiest way to deploy the setup to the production server at https://broadcas
 $ docker-machine create -d generic \
     --generic-ip-address direct.broadcast.radiomodem.dk \
     --generic-ssh-user root \
-    --generic-ssh-key /path/to/ssh/key \
+    --generic-ssh-key ./secrets/digitalocean/ssh.enc \
     broadcast.radiomodem.dk
 ```
 
 Next, connect to the server and boot up the setup using [Docker Compose]:
 
 ```sh
-$ eval $(docker-machine env broadcast.radiomodem.dk)
+$ eval `docker-machine env broadcast.radiomodem.dk`
 $ docker-compose up -d
 ```
 
