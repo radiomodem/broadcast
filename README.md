@@ -2,7 +2,7 @@
 
 > Dockerized Icecast deployment for broadcasting to Modem listeners
 
-[![Build Status](https://travis-ci.org/radio-modem/broadcast.svg)](https://travis-ci.org/radio-modem/broadcast)
+[![Build Status](https://travis-ci.org/radiomodem/broadcast.svg)](https://travis-ci.org/radiomodem/broadcast)
 
 ## Deployment
 
