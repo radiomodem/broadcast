@@ -30,4 +30,4 @@ before_script:
     broadcast.radiomodem.dk
   - eval `./docker-machine env broadcast.radiomodem.dk`
 
-script: ./docker-compose up -d
+script: ./docker-compose up --build -d
