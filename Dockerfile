@@ -9,7 +9,7 @@ FROM debian:jessie
 ################################################################################
 
 ENV ICECAST_VERSION 2.4.2
-ENV ICECAST_SOURCE https://github.com/xiph/Icecast-Server.git
+ENV ICECAST_SOURCE https://git.xiph.org/icecast-server.git
 
 ################################################################################
 # Build instructions
