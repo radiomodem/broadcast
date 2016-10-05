@@ -42,7 +42,9 @@ WORKDIR /
 RUN curl -sL $ICECAST_SOURCE-$ICECAST_VERSION.tar.gz \
   | tar xz
 
-WORKDIR /icecast-$ICECAST_VERSION
+RUN mv icecast-$ICECAST_VERSION icecast
+
+WORKDIR /icecast
 
 RUN ./configure && make && make install
 
