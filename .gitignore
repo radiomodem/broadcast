@@ -1,1 +1,4 @@
 .env
+
+# Private deploy key
+.travis/deploy-key
