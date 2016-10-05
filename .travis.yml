@@ -27,11 +27,12 @@ before_install:
   # Create an .env file from the example.
   - cp .env.example .env
 
-script:
+before_script:
   - docker-machine create -d generic
     --generic-ip-address direct.broadcast.radiomodem.dk
     --generic-ssh-user root
     --generic-ssh-key ./.travis/deploy-key
     broadcast.radiomodem.dk
   - eval `docker-machine env broadcast.radiomodem.dk`
-  - docker-compose up -d
+
+script: docker-compose up -d
