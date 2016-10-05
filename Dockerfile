@@ -1,15 +1,15 @@
-###############################################################################
+################################################################################
 # Base image
-###############################################################################
+################################################################################
 
-FROM debian:jessie
+FROM ubuntu:16.04
 
 ################################################################################
 # Environment variables
 ################################################################################
 
 ENV ICECAST_VERSION 2.4.2
-ENV ICECAST_SOURCE https://git.xiph.org/icecast-server.git
+ENV ICECAST_SOURCE http://downloads.xiph.org/releases/icecast/icecast
 
 ################################################################################
 # Build instructions
@@ -17,9 +17,11 @@ ENV ICECAST_SOURCE https://git.xiph.org/icecast-server.git
 
 USER root
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get -qq update
+RUN apt-get -qq install -y \
   # Tools for compiling Icecast
   make \
+  curl \
   automake \
   libtool \
   libxslt-dev \
@@ -37,11 +39,12 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /
 
-RUN git clone -b v$ICECAST_VERSION --depth 1 $ICECAST_SOURCE icecast
+RUN curl -sL $ICECAST_SOURCE-$ICECAST_VERSION.tar.gz \
+  | tar xz
 
-WORKDIR /icecast
+WORKDIR /icecast-$ICECAST_VERSION
 
-RUN ./autogen.sh && make && make install
+RUN ./configure && make && make install
 
 COPY entrypoint.sh ./
 COPY icecast.xml ./
