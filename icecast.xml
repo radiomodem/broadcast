@@ -47,7 +47,6 @@
     <pidfile>./icecast.pid</pidfile>
     <webroot>./app/web</webroot>
     <adminroot>./app/admin</adminroot>
-    <deny-ip>./deny-ip.txt</deny-ip>
 
     <alias source="/" destination="/status.xsl" />
   </paths>

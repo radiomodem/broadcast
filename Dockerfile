@@ -47,7 +47,6 @@ COPY entrypoint.sh ./
 COPY icecast.xml ./
 COPY supervisord.conf ./
 COPY app ./app
-COPY deny-ip.txt ./
 
 ################################################################################
 # Entrypoint
