@@ -8,8 +8,8 @@ FROM ubuntu:16.04
 # Environment variables
 ################################################################################
 
-ENV ICECAST_VERSION 2.4.2
-ENV ICECAST_SOURCE http://downloads.xiph.org/releases/icecast/icecast
+ENV ICECAST_VERSION 2.4.3
+ENV ICECAST_SOURCE http://downloads.xiph.org/releases/icecast
 
 ################################################################################
 # Build instructions
@@ -19,7 +19,6 @@ USER root
 
 RUN apt-get -qq update
 RUN apt-get -qq install -y \
-  # Tools for compiling Icecast
   make \
   curl \
   automake \
@@ -27,19 +26,13 @@ RUN apt-get -qq install -y \
   libxslt-dev \
   libogg-dev \
   libvorbis-dev \
-
-  # OpenSSL
   openssl \
-
-  # Supervisor
   supervisor \
-
-  # Git
   git-core
 
 WORKDIR /
 
-RUN curl -sL $ICECAST_SOURCE-$ICECAST_VERSION.tar.gz \
+RUN curl -sL $ICECAST_SOURCE/icecast-$ICECAST_VERSION.tar.gz \
   | tar xz
 
 RUN mv icecast-$ICECAST_VERSION icecast
