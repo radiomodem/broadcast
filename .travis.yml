@@ -1,7 +1,4 @@
-sudo: required
-
-services:
-  - docker
+sudo: false
 
 env:
   global:
@@ -17,22 +14,20 @@ before_install:
   # Install Docker Machine.
   - curl -L https://github.com/docker/machine/releases/download/v0.8.2/docker-machine-`uname -s`-`uname -m` > docker-machine
   - chmod +x docker-machine
-  - sudo mv docker-machine /usr/local/bin
 
   # Install Docker Compose.
   - curl -L https://github.com/docker/compose/releases/download/1.4.0/docker-compose-`uname -s`-`uname -m` > docker-compose
   - chmod +x docker-compose
-  - sudo mv docker-compose /usr/local/bin
 
   # Create an .env file from the example.
   - cp .env.example .env
 
 before_script:
-  - docker-machine create -d generic
+  - ./docker-machine create -d generic
     --generic-ip-address direct.broadcast.radiomodem.dk
     --generic-ssh-user root
     --generic-ssh-key ./.travis/deploy-key
     broadcast.radiomodem.dk
-  - eval `docker-machine env broadcast.radiomodem.dk`
+  - eval `./docker-machine env broadcast.radiomodem.dk`
 
-script: docker-compose up -d
+script: ./docker-compose up -d
