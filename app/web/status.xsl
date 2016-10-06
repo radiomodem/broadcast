@@ -13,6 +13,18 @@
         <xsl:call-template name="navbar" />
 
         <main class="container" role="main">
+          <xsl:if test="not(source)">
+            <div class="row">
+              <div class="column" data-columns="1"></div>
+              <div class="column">
+                <div class="slate u-compact u-text-center" style="margin: 40px 0">
+                  <h3>No active streams</h3>
+                </div>
+              </div>
+              <div class="column" data-columns="1"></div>
+            </div>
+          </xsl:if>
+
           <xsl:for-each select="source">
             <xsl:choose>
               <xsl:when test="listeners">
